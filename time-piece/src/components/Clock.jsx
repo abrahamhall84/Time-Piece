@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import Digital from './Digital'
+// import Analog from './Analog'
 import './styles/Clock.css';
 
 class Clock extends Component {
@@ -6,11 +8,12 @@ class Clock extends Component {
     super();
     this.state = {
       date: new Date(),
+
       toggle: true,
       type: true
     }
-    this.handleClick = this.handleClick.bind(this);
     this.handleClock = this.handleClock.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -29,7 +32,21 @@ class Clock extends Component {
       date: new Date()
     });
   }
-  
+  // handleDigitalClock() {
+  //   this.setState({isDigital: true});
+  // }
+  // handleAnalogClock() {
+  //   this.setState({isDigital: false});
+  // }
+  // handleChangeClock() {
+  //   const isDigital = isDigital
+  //   if(isDigital) {
+  //     return <Digital isDigital={this.handleDigitalClock}/>
+  //   } 
+  //   return <Analog isDigital={this.handleAnalogClock} />
+  // }
+
+
   handleClick() {
     this.setState(prevState => ({
       toggle: !prevState.toggle,
@@ -42,24 +59,33 @@ class Clock extends Component {
     }));
   }
   render() {
-     
-    const standardTime = this.state.date.toLocaleTimeString();
-    const militaryTime = this.state.date.toLocaleTimeString('en-US', { hour12: false });
+    // const standardTime = this.state.date.toLocaleTimeString();
+    // const militaryTime = this.state.date.toLocaleTimeString('en-US', { hour12: false });
     // let time: [standardTime, militaryTime]
+      
+    // let clock = handleChangeClock;
+    
     return (
       <div>
-        <h2>It is {this.state.time ? militaryTime : standardTime}.</h2>
-        {/* <h2>It is {standardTime}.</h2>
-         <h2>It is {militaryTime}.</h2> */}
+        <Digital date={this.state.date} />
+        <br />
+        <br />
+        <br />
+        {/*<h2>It is {this.state.time ? militaryTime : standardTime}.</h2>
         <button onClick={this.handleClick}>
         {this.state.toggle ? 'Military' : 'Standard'}
-      </button>
-      <br />
-      <br />
-      <br />
-      <button onClick={this.handleClock}>
-        {this.state.type ? 'Analog' : 'Digital'}
-      </button>
+        </button>*/ }
+        <br />
+        <br />
+        <br />
+        <div>{}</div>
+        <br />
+        <br />
+        <br />
+        <button onClick={this.handleClock}>
+          {this.state.type ? 'Analog' : 'Digital'}
+        </button>
+        
       </div>
     );
   }
@@ -68,6 +94,10 @@ class Clock extends Component {
 }
 
 export default Clock
+
+// <h2>It is {standardTime}.</h2>
+// <h2>It is {militaryTime}.</h2> 
+
 
 // class LoginControl extends React.Component {
 //   constructor(props) {
