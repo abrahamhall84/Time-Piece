@@ -18,13 +18,14 @@ class Digital extends Component {
     }));
   }
   render() {
+  {/*using props instead of state for date*/}
     const standardTime = this.props.date.toLocaleTimeString();
     const militaryTime = this.props.date.toLocaleTimeString('en-US', { hour12: false });
     let time: [standardTime, militaryTime];
     
     return(
       <div className='DigitalClock'>
-        <h1>The time is {this.state.time ? militaryTime : standardTime}.</h1>
+        <h1>The time is:<br /><br /> {this.state.time ? militaryTime : standardTime}</h1>
         <button onClick={this.handleClick}>
         {this.state.toggle ? 'Military' : 'Standard'}
         </button>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Digital from './Digital'
-// import Analog from './Analog'
+import Analog from './Analog'
 import './styles/Clock.css';
 
 class Clock extends Component {
@@ -8,30 +8,31 @@ class Clock extends Component {
     super();
     this.state = {
       date: new Date(),
-
-      toggle: true,
       type: true
     }
-    this.handleClock = this.handleClock.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    
   }
-
+  // getInitialState() {
+  //   return {
+  //     active: 'Digital'
+  //   }
+  // }
   componentDidMount() {
     this.timerID = setInterval(
       () => this.tick(),
       1000
     );
   }
-
   componentWillUnmount() {
     clearInterval(this.timerID);
   }
-
   tick() {
     this.setState({
       date: new Date()
     });
   }
+
   // handleDigitalClock() {
   //   this.setState({isDigital: true});
   // }
@@ -46,51 +47,33 @@ class Clock extends Component {
   //   return <Analog isDigital={this.handleAnalogClock} />
   // }
 
-
   handleClick() {
+    // const date = this.state.date;
+    // const active = this.state.active;
+    // let newActive = active === 'Digital' ? 'Analog' : 'Digital' ;
     this.setState(prevState => ({
-      toggle: !prevState.toggle,
-      time: !prevState.time
-    }));
-  }
-  handleClock() {
-    this.setState(prevState => ({
-      type: !prevState.type
+      type: !prevState.type,
+      active: !prevState.active
     }));
   }
   render() {
-    // const standardTime = this.state.date.toLocaleTimeString();
-    // const militaryTime = this.state.date.toLocaleTimeString('en-US', { hour12: false });
-    // let time: [standardTime, militaryTime]
-      
-    // let clock = handleChangeClock;
-    
+    const date = this.state.date;
+    //const active = this.state.active;
     return (
       <div>
-        <Digital date={this.state.date} />
+        {/*<Digital date={this.state.date} /> passed down date info*/}
+        {/*<div>{active === 'Digital' ? (<Digital date={this.state.date} />) : active === 'Analog' ? (<Analog date={this.state.date} />) : null}</div>{/*tyring to render Digital or Analog components*/}
+        <div>{this.state.active ? <Analog date={date} /> : <Digital date={date} />}</div>
         <br />
         <br />
         <br />
-        {/*<h2>It is {this.state.time ? militaryTime : standardTime}.</h2>
         <button onClick={this.handleClick}>
-        {this.state.toggle ? 'Military' : 'Standard'}
-        </button>*/ }
-        <br />
-        <br />
-        <br />
-        <div>{}</div>
-        <br />
-        <br />
-        <br />
-        <button onClick={this.handleClock}>
           {this.state.type ? 'Analog' : 'Digital'}
         </button>
         
       </div>
     );
-  }
-  
-  
+  }  
 }
 
 export default Clock
@@ -98,6 +81,10 @@ export default Clock
 // <h2>It is {standardTime}.</h2>
 // <h2>It is {militaryTime}.</h2> 
 
+{/*<h2>It is {this.state.time ? militaryTime : standardTime}.</h2>
+    <button onClick={this.handleClick}>
+    {this.state.toggle ? 'Military' : 'Standard'}
+  </button>*/ }
 
 // class LoginControl extends React.Component {
 //   constructor(props) {
