@@ -11,13 +11,8 @@ class Clock extends Component {
       type: true
     }
     this.handleClick = this.handleClick.bind(this);
-    
   }
-  // getInitialState() {
-  //   return {
-  //     active: 'Digital'
-  //   }
-  // }
+  
   componentDidMount() {
     this.timerID = setInterval(
       () => this.tick(),
@@ -32,7 +27,41 @@ class Clock extends Component {
       date: new Date()
     });
   }
+  handleClick() {
+    // const date = this.state.date;
+    // const active = this.state.active;
+    // let newActive = active === 'Digital' ? 'Analog' : 'Digital' ;
+    this.setState(prevState => ({
+      type: !prevState.type,
+      active: !prevState.active
+    }));
+  }
 
+  render() {
+    const date = this.state.date;
+    //const active = this.state.active;
+    return (
+      <div className='ClockFrame'>
+        {/*<Digital date={this.state.date} /> passed down date info*/}
+        {/*<div>{active === 'Digital' ? (<Digital date={this.state.date} />) : active === 'Analog' ? (<Analog date={this.state.date} />) : null}</div>{/*tyring to render Digital or Analog components*/}
+        <div className='Clock'>{this.state.active ? <Analog date={date} /> : <Digital date={date} />}</div>
+        <br />
+        <button className='ToggleButton' onClick={this.handleClick}>
+          {this.state.type ? 'Analog' : 'Digital'}
+        </button>
+    
+      </div>
+    );
+  }  
+}
+
+export default Clock
+
+// getInitialState() {
+  //   return {
+  //     active: 'Digital'
+  //   }
+  // }
   // handleDigitalClock() {
   //   this.setState({isDigital: true});
   // }
@@ -47,37 +76,7 @@ class Clock extends Component {
   //   return <Analog isDigital={this.handleAnalogClock} />
   // }
 
-  handleClick() {
-    // const date = this.state.date;
-    // const active = this.state.active;
-    // let newActive = active === 'Digital' ? 'Analog' : 'Digital' ;
-    this.setState(prevState => ({
-      type: !prevState.type,
-      active: !prevState.active
-    }));
-  }
-  render() {
-    const date = this.state.date;
-    //const active = this.state.active;
-    return (
-      <div>
-        {/*<Digital date={this.state.date} /> passed down date info*/}
-        {/*<div>{active === 'Digital' ? (<Digital date={this.state.date} />) : active === 'Analog' ? (<Analog date={this.state.date} />) : null}</div>{/*tyring to render Digital or Analog components*/}
-        <div>{this.state.active ? <Analog date={date} /> : <Digital date={date} />}</div>
-        <br />
-        <br />
-        <br />
-        <button onClick={this.handleClick}>
-          {this.state.type ? 'Analog' : 'Digital'}
-        </button>
-        
-      </div>
-    );
-  }  
-}
-
-export default Clock
-
+  
 // <h2>It is {standardTime}.</h2>
 // <h2>It is {militaryTime}.</h2> 
 
