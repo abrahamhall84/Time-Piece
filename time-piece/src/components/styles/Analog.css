@@ -1,11 +1,17 @@
 
+.AnalogTitle {
+  margin-bottom: 5%;
+}
 .clock {
+  border: 5px outset #757D84;
   border-radius: 50%;
-  background: #fff url(https://cssanimation.rocks/images/posts/clocks/ios_clock.svg) no-repeat center;
+  background: #1190E5 url(https://cssanimation.rocks/images/posts/clocks/ios_clock.svg) no-repeat center;
   background-size: 100%;
-  height: 20em;
-  padding-bottom: 31%;
+  background-origin: content-box;
   position: relative;
+  margin: auto;
+  padding:1em;
+  height: 20em;
   width: 20em;
 }
 .clock::after {
@@ -46,7 +52,7 @@
   width: 2%;
 }
 .seconds {
-  background: #000;
+  background: #DE9D16;
   height: 45%;
   left: 49.5%;
   position: absolute;

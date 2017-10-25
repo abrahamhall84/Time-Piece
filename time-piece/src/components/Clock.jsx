@@ -41,15 +41,16 @@ class Clock extends Component {
     const date = this.state.date;
     //const active = this.state.active;
     return (
-      <div className='ClockFrame'>
+      <div className='Clock'>
         {/*<Digital date={this.state.date} /> passed down date info*/}
         {/*<div>{active === 'Digital' ? (<Digital date={this.state.date} />) : active === 'Analog' ? (<Analog date={this.state.date} />) : null}</div>{/*tyring to render Digital or Analog components*/}
-        <div className='Clock'>{this.state.active ? <Analog date={date} /> : <Digital date={date} />}</div>
-        <br />
-        <button className='ToggleButton' onClick={this.handleClick}>
-          {this.state.type ? 'Analog' : 'Digital'}
-        </button>
-    
+        <div className='ClockFrame'>
+          <div className='ClockType'>{this.state.active ? <Analog date={date} /> : <Digital date={date} />}</div>
+          <br />
+          <button className='ToggleButton' onClick={this.handleClick}>
+            {this.state.type ? 'Analog' : 'Digital'}
+          </button>
+        </div>
       </div>
     );
   }  

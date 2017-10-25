@@ -26,7 +26,10 @@ class Digital extends Component {
     return(
       <div className='DigitalClock'>
         <h1 className='DigitalTitle'>The Digital Clock</h1>
-        <h2>The time is:<br /><br /> {this.state.time ? militaryTime : standardTime}</h2>
+        <h2>The time is:</h2>
+        <h2 className='CurrentTime'>{this.state.time ? militaryTime : standardTime}</h2>
+        <br />
+        <br />
         <button onClick={this.handleClick}>
         {this.state.toggle ? 'Military' : 'Standard'}
         </button>

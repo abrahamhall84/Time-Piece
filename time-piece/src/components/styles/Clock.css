@@ -1,9 +1,14 @@
-.ClockFrame {
-  height: 500px;
-  width: 300px;
-  margin: auto;
-  margin-top: 10%;
-  bottom: 0px;
-  padding: 50px;
+.Clock {
+  width: 100%;
 }
-
+.ClockFrame {
+  position: relative;
+  height: 500px;
+  width: 600px;
+  margin: 10% 22.5%;
+  padding: 50px;
+  border: 10px ridge #DE9D16;
+}
+/*.ToggleButton {
+  position: absolute;
+}*/
