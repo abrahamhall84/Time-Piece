@@ -81,10 +81,10 @@ export default Clock
 // <h2>It is {standardTime}.</h2>
 // <h2>It is {militaryTime}.</h2> 
 
-{/*<h2>It is {this.state.time ? militaryTime : standardTime}.</h2>
+/*<h2>It is {this.state.time ? militaryTime : standardTime}.</h2>
     <button onClick={this.handleClick}>
     {this.state.toggle ? 'Military' : 'Standard'}
-  </button>*/ }
+  </button>*/ 
 
 // class LoginControl extends React.Component {
 //   constructor(props) {

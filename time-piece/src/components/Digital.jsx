@@ -18,10 +18,10 @@ class Digital extends Component {
     }));
   }
   render() {
-  {/*using props instead of state for date*/}
+  /*using props instead of state for date*/
     const standardTime = this.props.date.toLocaleTimeString();
     const militaryTime = this.props.date.toLocaleTimeString('en-US', { hour12: false });
-    let time: [standardTime, militaryTime];
+    // let time: [standardTime, militaryTime];
     
     return(
       <div className='DigitalClock'>
